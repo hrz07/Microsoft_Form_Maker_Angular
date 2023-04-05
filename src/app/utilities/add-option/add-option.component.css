@@ -1,0 +1,16 @@
+.addOther_btn_box{
+    display: flex;
+    gap: 10px;
+}
+.addOther_btn_box button{
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: white;
+    color: #03787c;
+    font-weight: bold;
+    cursor: pointer;
+}
+.plus{
+    display: flex;
+}

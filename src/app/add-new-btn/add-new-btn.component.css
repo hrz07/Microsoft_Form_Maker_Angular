@@ -1,0 +1,9 @@
+.addNew{
+    background-color: #03787c;
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 3px;
+}

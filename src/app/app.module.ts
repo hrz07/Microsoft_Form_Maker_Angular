@@ -15,6 +15,10 @@ import { FooterButtonsComponent } from './utilities/footer-buttons/footer-button
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { AddOptionComponent } from './utilities/add-option/add-option.component';
+import { AddNewBtnComponent } from './add-new-btn/add-new-btn.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -22,7 +26,8 @@ import { AddOptionComponent } from './utilities/add-option/add-option.component'
     QinputComponent,
     HeadingInputsComponent,
     FooterButtonsComponent,
-    AddOptionComponent
+    AddOptionComponent,
+    AddNewBtnComponent
   ],
   imports: [
     BrowserModule,
