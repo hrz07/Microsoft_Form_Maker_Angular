@@ -1,0 +1,18 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.footer_btn_title{
+    font-size: 16px;
+    font-weight: 400;
+}
+.footer_btn_box{
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.material-symbols-outlined{
+    cursor: pointer;
+}

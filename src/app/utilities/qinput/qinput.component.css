@@ -1,0 +1,21 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 50%;
+    /* height: 60px; */
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .example-full-width mat-icon{
+    /* margin-bottom: 20px;
+    margin-left: 3px; */
+
+    /* position: absolute; */
+    color: rgb(131, 133, 133);
+  }
