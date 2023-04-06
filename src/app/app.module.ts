@@ -16,6 +16,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { AddOptionComponent } from './utilities/add-option/add-option.component';
 import { AddNewBtnComponent } from './add-new-btn/add-new-btn.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -27,7 +29,8 @@ import { AddNewBtnComponent } from './add-new-btn/add-new-btn.component';
     HeadingInputsComponent,
     FooterButtonsComponent,
     AddOptionComponent,
-    AddNewBtnComponent
+    AddNewBtnComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { AddNewBtnComponent } from './add-new-btn/add-new-btn.component';
     MatIconModule,
     MatToolbarModule,
     MatSlideToggleModule,
-    MatTooltipModule
+    MatTooltipModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

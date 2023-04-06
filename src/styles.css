@@ -1,4 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: url(https://cdn.forms.office.net/forms/images/aio/wave-pattern-v1.svg)
+      center top / cover no-repeat fixed,
+    linear-gradient(
+      90deg,
+      rgba(3, 120, 124, 0.2) 0%,
+      rgba(3, 120, 124, 0.89) 100%
+    );
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
