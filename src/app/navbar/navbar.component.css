@@ -1,0 +1,33 @@
+.navContainer {
+  background-color: #148186;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+}
+.buttons  {
+  background-color: #148186;
+  border: none;
+  color: white;
+  display: flex;
+  gap: 10px;
+}
+.logos {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #148186;
+  border: none;
+  color: white;
+}
+ button {
+  background-color: #148186;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.logo{
+    font-size: 16px;
+    font-weight: 500;
+}

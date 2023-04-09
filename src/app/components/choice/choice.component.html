@@ -1,0 +1,22 @@
+<div class="choice_front">
+  <app-heading-inputs></app-heading-inputs>
+  <div class="choice_ques_box">
+    <app-qinput></app-qinput>
+  </div>
+  <div class="option_box">
+    <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="example-radio-group"
+      [(ngModel)]="favoriteSeason"
+    >
+      <mat-radio-button
+        class="example-radio-button"
+        *ngFor="let season of seasons; let i = index"
+        [value]="season"
+      >
+        <!-- {{ season }} -->
+        <input class="custom_input" placeholder="option {{i+1}}" type="text">
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+</div>

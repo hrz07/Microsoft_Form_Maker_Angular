@@ -9,14 +9,13 @@
 }
 
 .btnGroup {
+     height: 35px;
     display: flex;
     flex-direction: row;
     background-color: #03787c;
-    margin-left: 55px;
     width: 315px;
     border-radius: 3px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    border-radius: 3px; 
   }
   
   .plus {

@@ -1,4 +1,4 @@
-<button class="addNew" >
+<button *ngIf="!hide" class="addNew" (click)="hideHandler()" >
     <span class="material-symbols-outlined">add</span> Add new
 </button>
 
@@ -12,8 +12,8 @@
     <button>Date</button>
 </div> -->
 
-   <div class="btnGroup">
-        <button class="plus">
+   <div *ngIf="hide" class="btnGroup">
+        <button class="plus" (click)="hideHandler()">
           <span class="material-symbols-outlined">add</span>
         </button>
         <button id="choice_button" class="buttons checkedBtn">

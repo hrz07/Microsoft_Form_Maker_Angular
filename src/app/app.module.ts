@@ -18,6 +18,11 @@ import { AddOptionComponent } from './utilities/add-option/add-option.component'
 import { AddNewBtnComponent } from './add-new-btn/add-new-btn.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FormsModule } from '@angular/forms';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ChoiceComponent } from './components/choice/choice.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -30,7 +35,10 @@ import { FormsModule } from '@angular/forms';
     FooterButtonsComponent,
     AddOptionComponent,
     AddNewBtnComponent,
-    HeaderComponent
+    HeaderComponent,
+    ToolbarComponent,
+    NavbarComponent,
+    ChoiceComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +51,9 @@ import { FormsModule } from '@angular/forms';
     MatToolbarModule,
     MatSlideToggleModule,
     MatTooltipModule,
-    FormsModule
+    FormsModule,
+    MatTabsModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

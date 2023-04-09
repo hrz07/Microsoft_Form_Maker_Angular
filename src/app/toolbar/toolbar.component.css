@@ -1,0 +1,27 @@
+.tabSection {
+  max-width: 300px;
+}
+.toolContainer {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 2px 40px;
+  height: 45px;
+}
+.buttonSection{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.buttonSection .btn{
+    border: none;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+.buttonSection{
+    cursor: pointer;
+}
