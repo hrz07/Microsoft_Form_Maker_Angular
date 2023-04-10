@@ -9,9 +9,14 @@ import { HelperService } from 'src/app/services/helper.service';
 })
 export class HeaderComponent {
 
+  formShow: Boolean = false;
   headerData:Header={
     title: '',
     desc:''
+  }
+
+  formHandler():void{
+    this.formShow = !this.formShow;
   }
 
   constructor(private data:HelperService){

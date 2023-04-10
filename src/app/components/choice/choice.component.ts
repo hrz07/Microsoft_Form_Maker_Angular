@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 export class ChoiceComponent {
   favoriteSeason?: string;
   seasons: string[] = ['Winter', 'Spring', 'Summer'];
+
+
+  addOption() {
+    this.seasons.push('hi')
+  }
+
 }
