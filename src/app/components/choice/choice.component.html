@@ -9,13 +9,48 @@
       class="example-radio-group"
       [(ngModel)]="favoriteSeason"
     >
+      <div *ngFor="let season of seasons; let i = index">
+        <mat-radio-button class="example-radio-button loop" [value]="season">
+          <!-- {{ season }} -->
+
+          <div class="optionBox">
+            <input
+              class="custom_input"
+              placeholder="option {{ i + 1 }}"
+              type="text"
+            />
+            <span class="material-symbols-outlined"> delete </span>
+            <span class="material-symbols-outlined"> apps </span>
+          </div>
+        </mat-radio-button>
+      </div>
+    </mat-radio-group>
+  </div>
+
+  <app-add-option></app-add-option>
+  <hr />
+  <app-footer-buttons></app-footer-buttons>
+</div>
+
+<!-- choice back side -->
+
+<div class="choice_back">
+  <div class="dragbtn">
+    <span class="material-symbols-outlined"> apps </span>
+  </div>
+  <div class="contentBox">
+    <label id="example-radio-group-label">Question</label>
+    <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="example-radio-group"
+      [(ngModel)]="favoriteSeason"
+    >
       <mat-radio-button
         class="example-radio-button"
-        *ngFor="let season of seasons; let i = index"
+        *ngFor="let season of seasons"
         [value]="season"
       >
-        <!-- {{ season }} -->
-        <input class="custom_input" placeholder="option {{i+1}}" type="text">
+        {{ season }}
       </mat-radio-button>
     </mat-radio-group>
   </div>

@@ -1,6 +1,9 @@
 .choice_front{
     border-top: 4px solid #0b494b9d;
     background-color: #f5f5f5;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .choice_ques_box{
@@ -16,10 +19,11 @@
   
   .example-radio-button {
     margin: 5px;
+   
   }
 
   .option_box{
-    padding: 0px 20px;
+    padding: 0px 40px;
   }
 
   .custom_input{
@@ -30,3 +34,50 @@
     padding: 2px 10px;
     font-size: 16px;
   }
+
+  .optionBox{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .optionBox span{
+    color: rgb(107, 106, 106);
+  }
+
+  .optionBox:hover span{
+    display: block;
+  }
+
+  .optionBox span{
+    display: none;
+  }
+  .loop{
+    display: flex;
+    
+  }
+
+  .dragbtn{
+    display: flex;
+    height: 30px;
+    width: 100%;
+    align-items: center;
+    margin: 0px auto;
+  }
+  .dragbtn span{
+    margin: 0px auto;
+    cursor: pointer;
+  }
+
+  .choice_back{
+    /* width: 100%; */
+    min-height: 300px;
+  
+    padding: 10px 60px;
+    margin-bottom: 20px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  }
+
+  .choice_back:hover{
+    background-color: #f5f5f5;
+  }
+

@@ -23,6 +23,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ChoiceComponent } from './components/choice/choice.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { QuestionComponent } from './components/question/question.component';
+import { RankingComponent } from './components/ranking/ranking.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -38,7 +41,9 @@ import {MatRadioModule} from '@angular/material/radio';
     HeaderComponent,
     ToolbarComponent,
     NavbarComponent,
-    ChoiceComponent
+    ChoiceComponent,
+    QuestionComponent,
+    RankingComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatTooltipModule,
     FormsModule,
     MatTabsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

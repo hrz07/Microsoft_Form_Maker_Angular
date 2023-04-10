@@ -3,4 +3,11 @@
     margin: 20px auto;
     background-color: aliceblue;
     padding: 20px;
+    height: 700px;
+    overflow: scroll;
+    scroll-behavior: smooth;
 }
+.formContainer::-webkit-scrollbar {
+    width: 0.1em;
+    background-color: #F5F5F5;
+  }

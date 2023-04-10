@@ -1,0 +1,51 @@
+<div class="rank_front">
+  <app-heading-inputs></app-heading-inputs>
+  <app-qinput></app-qinput>
+  <div class="ratingBox">
+    <span *ngFor="let i of [].constructor(label)"
+      ><span class="material-symbols-outlined"> {{ icon }} </span></span
+    >
+    <div class="rating_input">
+      <div class="rating">
+        <label>Lavels</label>
+        <mat-form-field appearance="fill">
+          <!-- <mat-label>Favorite food</mat-label> -->
+          <mat-select [(ngModel)]="label">
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+              {{ food.viewValue }}
+              <!-- {{label}} -->
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="rating">
+        <label>Symbols</label>
+        <mat-form-field appearance="fill">
+          <!-- <mat-label>Cars</mat-label> -->
+          <select matNativeControl required [(ngModel)]="icon">
+            <option value="star">star</option>
+            <option value="thumb_up">thumb</option>
+            <option value="favorite">heart</option>
+            <option value="military_tech">ribbon</option>
+          </select>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <app-footer-buttons></app-footer-buttons>
+</div>
+
+<div class="ranking_back">
+  <div class="dragbtn">
+    <span class="material-symbols-outlined"> apps </span>
+  </div>
+  <span class="ques">Questions</span>
+  <div>
+    <span class="material-symbols-outlined"> thumb_up </span>
+    <span class="material-symbols-outlined"> thumb_up </span>
+    <span class="material-symbols-outlined"> thumb_up </span>
+    <span class="material-symbols-outlined"> thumb_up </span>
+    <span class="material-symbols-outlined"> thumb_up </span>
+  </div>
+</div>
