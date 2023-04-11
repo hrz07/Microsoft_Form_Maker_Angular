@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ButtonHandlerService } from '../services/button-handler.service';
+import { FormShowerService } from '../services/form-shower.service';
 
 @Component({
   selector: 'app-add-new-btn',
@@ -11,6 +12,11 @@ export class AddNewBtnComponent {
 
   hideHandler():void{
     this.hide = !this.hide;
+  }
+
+
+  constructor(public visibilityFunc :FormShowerService){
+   
   }
 
 }

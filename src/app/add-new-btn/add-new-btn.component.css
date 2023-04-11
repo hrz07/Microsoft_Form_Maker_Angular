@@ -50,3 +50,9 @@
   .btnGroup > .material-symbols-outlined {
     font-size: 16px;
   }
+
+   button{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }

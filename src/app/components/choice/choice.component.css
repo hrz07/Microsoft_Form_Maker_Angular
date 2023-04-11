@@ -98,4 +98,7 @@
 .plus{
     display: flex;
 }
+.material-symbols-outlined{
+  cursor: pointer;
+}
 

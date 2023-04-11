@@ -1,17 +1,43 @@
-<div class="ques_front">
-    <app-heading-inputs></app-heading-inputs>
-    <app-qinput></app-qinput>
-    <input type="text" disabled placeholder="Enter your answer">
-    <hr>
-    <app-footer-buttons></app-footer-buttons>
-</div>
+<div *ngIf="visibilityFunc.quesVisible ">
+    <!-- <div *ngIf="formShow" class="ques_front" (click)="formHandler($event)">
+        <app-heading-inputs></app-heading-inputs>
+        <app-qinput></app-qinput>
+        <input type="text" disabled placeholder="Enter your answer">
+        <hr>
+        <app-footer-buttons></app-footer-buttons>
+    </div>
+    
+    
+    <div *ngIf="!formShow" class="ques_back">
+        <div class="dragbtn">
+            <span class="material-symbols-outlined"> apps </span>
+          </div>
+        <span>Questions</span>
+        <input type="text" disabled placeholder="Enter your answer">
+    </div> -->
 
 
-<div class="ques_back">
-    <div class="dragbtn">
-        <span class="material-symbols-outlined"> apps </span>
-      </div>
-    <span>Questions</span>
-    <input type="text" disabled placeholder="Enter your answer">
+
+
+<!-- test -->
+
+    <div *ngIf="formShow" class="ques_front" >
+        <app-heading-inputs></app-heading-inputs>
+        <app-qinput></app-qinput>
+        <input type="text" disabled placeholder="Enter your answer">
+        <hr>
+        <app-footer-buttons></app-footer-buttons>
+    </div>
+    
+    
+    <div *ngIf="!formShow"  class="ques_back" (click)="formHandler($event)" >
+        <div class="dragbtn">
+            <span class="material-symbols-outlined"> apps </span>
+          </div>
+        <span>Questions</span>
+        <input type="text" disabled placeholder="Enter your answer">
+    </div>
+
+
 </div>
 

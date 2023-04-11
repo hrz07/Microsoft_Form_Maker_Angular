@@ -26,6 +26,8 @@ import {MatRadioModule} from '@angular/material/radio';
 import { QuestionComponent } from './components/question/question.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 import {MatSelectModule} from '@angular/material/select';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 
@@ -59,7 +61,10 @@ import {MatSelectModule} from '@angular/material/select';
     FormsModule,
     MatTabsModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    DragDropModule,
+    MatMenuModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

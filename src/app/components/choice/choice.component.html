@@ -1,63 +1,76 @@
-<div class="choice_front">
-  <app-heading-inputs></app-heading-inputs>
-  <div class="choice_ques_box">
-    <app-qinput></app-qinput>
-  </div>
-  <div class="option_box">
-    <mat-radio-group
-      aria-labelledby="example-radio-group-label"
-      class="example-radio-group"
-      [(ngModel)]="favoriteSeason"
-    >
-      <div *ngFor="let season of seasons; let i = index">
-        <mat-radio-button class="example-radio-button loop" [value]="season">
-          <!-- {{ season }} -->
+<div *ngIf="visibilityFunc.isVisible">
+  <div *ngIf="formShow" class="choice_front">
+    <app-heading-inputs></app-heading-inputs>
+    <div class="choice_ques_box">
+      <app-qinput></app-qinput>
+    </div>
 
-          <div class="optionBox">
-            <input
-              class="custom_input"
-              placeholder="option {{ i + 1 }}"
-              type="text"
-            />
-            <span class="material-symbols-outlined"> delete </span>
-            <span class="material-symbols-outlined"> apps </span>
-          </div>
-        </mat-radio-button>
-      </div>
-    </mat-radio-group>
-  </div>
-
-  <!-- <app-add-option></app-add-option> -->
-  <div class="addOther_btn_box">
-    <button (click)="addOption()">
-      <span class="material-symbols-outlined"> add </span> Add Option
-    </button>
-    <button>Add "Other" option</button>
-  </div>
-  <hr />
-  <app-footer-buttons></app-footer-buttons>
-</div>
-
-<!-- choice back side -->
-
-<div class="choice_back">
-  <div class="dragbtn">
-    <span class="material-symbols-outlined"> apps </span>
-  </div>
-  <div class="contentBox">
-    <label id="example-radio-group-label">Question</label>
-    <mat-radio-group
-      aria-labelledby="example-radio-group-label"
-      class="example-radio-group"
-      [(ngModel)]="favoriteSeason"
-    >
-      <mat-radio-button
-        class="example-radio-button"
-        *ngFor="let season of seasons"
-        [value]="season"
+    <div class="option_box" cdkDropList (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="seasons">
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="favoriteSeason"
       >
-        {{ season }}
-      </mat-radio-button>
-    </mat-radio-group>
+        <div *ngFor="let season of seasons; let i = index" cdkDrag
+        cdkDragLockAxis="y"
+        cdkDragBoundary=".option_box">
+          <mat-radio-button
+            
+            class="example-radio-button loop"
+            [value]="season"
+          >
+            <!-- {{ season }} -->
+
+            <div class="optionBox">
+              <input
+                class="custom_input"
+                placeholder="option {{ i + 1 }}"
+                type="text"
+              />
+              <span (click)="deleteFunc(i,$event)" class="material-symbols-outlined">
+                delete
+              </span>
+              <span cdkDragHandle class="material-symbols-outlined">
+                apps
+              </span>
+            </div>
+          </mat-radio-button>
+        </div>
+      </mat-radio-group>
+    </div>
+
+    <!-- <app-add-option></app-add-option> -->
+    <div class="addOther_btn_box">
+      <button (click)="addOption()">
+        <span class="material-symbols-outlined"> add </span> Add Option
+      </button>
+      <button>Add "Other" option</button>
+    </div>
+    <hr />
+    <app-footer-buttons></app-footer-buttons>
+  </div>
+
+  <!-- choice back side -->
+
+  <div *ngIf="!formShow" class="choice_back" (click)="formHandler($event)">
+    <div class="dragbtn">
+      <span class="material-symbols-outlined"> apps </span>
+    </div>
+    <div class="contentBox">
+      <label id="example-radio-group-label">Question</label>
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="favoriteSeason"
+      >
+        <mat-radio-button
+          class="example-radio-button"
+          *ngFor="let season of seasons"
+          [value]="season"
+        >
+          {{ season }}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
   </div>
 </div>

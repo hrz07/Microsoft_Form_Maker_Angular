@@ -1,11 +1,11 @@
 
-<div *ngIf="!formShow" class="front" (click)="formHandler()"   >
+<div *ngIf="formShow" class="front" (click)="formHandler($event)"   >
     <h1>{{headerData.title}}</h1>
     <p>{{headerData.desc}}</p>
 </div>
 
 
-<div *ngIf="formShow" class="back">
+<div *ngIf="!formShow" class="back">
     <app-qinput  (newValue)="addNewTitle($event)" [value]="headerData.title" [searchImageShown]="true" ></app-qinput>
     <app-qinput (newValue)="addNewDesc($event)" [value]="headerData.desc"  [searchImageShown]="false" ></app-qinput>
 </div>
