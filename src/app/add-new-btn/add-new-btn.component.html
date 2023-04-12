@@ -1,10 +1,10 @@
 <div>
-  <button *ngIf="!hide" class="addNew" (click)="hideHandler()">
+  <button *ngIf="!hide" class="addNew" (click)="hideHandler($event)">
     <span class="material-symbols-outlined">add</span> Add new
   </button>
 
   <div *ngIf="hide" class="btnGroup">
-    <button class="plus" (click)="hideHandler()">
+    <button class="plus" (click)="hideHandler($event)">
       <span class="material-symbols-outlined">add</span>
     </button>
     <button
@@ -18,7 +18,7 @@
     <button
       id="text_btn"
       class="buttons"
-      (click)="visibilityFunc.quesVisibility()"
+      (click)="visibilityFunc.quesVisibility($event)"
     >
       <span class="material-symbols-outlined"> title </span>
       Text
@@ -26,7 +26,7 @@
     <button
       id="rating_btn"
       class="buttons"
-      (click)="visibilityFunc.rankingVisibility()"
+      (click)="visibilityFunc.rankingVisibility($event)"
     >
       <span class="material-symbols-outlined"> thumb_up </span>
       Rating

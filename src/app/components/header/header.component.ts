@@ -11,8 +11,8 @@ export class HeaderComponent {
 
   formShow: Boolean = true;
   headerData:Header={
-    title: '',
-    desc:''
+    title: 'united',
+    desc:'desc'
   }
 shoow = true
 
@@ -22,17 +22,27 @@ shoow = true
     this.formShow = false;
   }
 
+  dataPayload = {
+    title : '',
+    desc: '',
+  }
+ 
   constructor(private data:HelperService, private ele:ElementRef){
     this.headerData = data.header;
   }
 
   addNewTitle(newvalue: string) {
     this.headerData.title = newvalue;
+    this.dataPayload.title = newvalue;
   }
 
   addNewDesc(newvalue: string) {
     this.headerData.desc = newvalue;
+    this.dataPayload.desc = newvalue;
   }
+
+
+
 @HostListener('document:click', ['$event'])
 onDocumentClick(event: MouseEvent){
   const target = event.target as HTMLElement;
@@ -40,6 +50,9 @@ onDocumentClick(event: MouseEvent){
   {
     // this.formShow = !this.formShow;
     this.formShow = true;
+    localStorage.setItem("my-data", JSON.stringify(this.dataPayload));
+    let x = localStorage.getItem("my-data");
+ 
   }
 }
 }

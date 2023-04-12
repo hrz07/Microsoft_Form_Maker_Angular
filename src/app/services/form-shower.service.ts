@@ -12,14 +12,17 @@ export class FormShowerService {
 
 
   toggleVisibility():void{
+    // event.stopPropagation()
     this.isVisible = !this.isVisible;
   }
 
-  quesVisibility():void{
+  quesVisibility(event:Event):void{
+    event.stopPropagation()
     this.quesVisible = !this.quesVisible;
   }
 
-  rankingVisibility():void{
+  rankingVisibility(event:Event):void{
+    event.stopPropagation()
     this.rankingVisible = !this.rankingVisible;
   }
 

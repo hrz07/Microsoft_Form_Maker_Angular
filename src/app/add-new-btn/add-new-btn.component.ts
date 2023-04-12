@@ -10,7 +10,8 @@ import { FormShowerService } from '../services/form-shower.service';
 export class AddNewBtnComponent {
   hide: boolean = false;
 
-  hideHandler():void{
+  hideHandler(event:Event):void{
+    event.stopPropagation()
     this.hide = !this.hide;
   }
 

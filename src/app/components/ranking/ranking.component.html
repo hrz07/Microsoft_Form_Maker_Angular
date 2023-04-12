@@ -1,7 +1,12 @@
 <div *ngIf="visibilityFunc.rankingVisible">
   <div *ngIf="formShow" class="rank_front" >
     <app-heading-inputs></app-heading-inputs>
-    <app-qinput></app-qinput>
+
+    <mat-form-field class="example-full-width">
+      <input  matInput [(ngModel)]="ques"  />
+    </mat-form-field>
+ 
+
     <div class="ratingBox">
       <span *ngFor="let i of [].constructor(label)"
         ><span class="material-symbols-outlined"> {{ icon }} </span></span
@@ -41,13 +46,14 @@
     <div class="dragbtn">
       <span class="material-symbols-outlined"> apps </span>
     </div>
-    <span class="ques">Questions</span>
+    <span class="ques">{{ques || 'Question'}}</span>
     <div>
+      <!-- <span class="material-symbols-outlined"> thumb_up </span>
       <span class="material-symbols-outlined"> thumb_up </span>
       <span class="material-symbols-outlined"> thumb_up </span>
       <span class="material-symbols-outlined"> thumb_up </span>
-      <span class="material-symbols-outlined"> thumb_up </span>
-      <span class="material-symbols-outlined"> thumb_up </span>
-    </div>
+      <span class="material-symbols-outlined"> thumb_up </span> -->
+      <span *ngFor="let i of [].constructor(label)"><span class="material-symbols-outlined"> {{ icon }} </span></span>
+  
   </div>
 </div>

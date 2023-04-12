@@ -1,24 +1,140 @@
+<!---------------------- choice output lists --------------------------------->
+<div *ngIf="quesOptionList.length">
+  <div   *ngFor="let quesOption of quesOptionList; let i = index">
+    <div *ngIf="formShow" class="choice_front">
+      <app-heading-inputs></app-heading-inputs>
+      <div class="choice_ques_box">
+        <mat-form-field class="example-full-width">
+          <!-- <mat-label></mat-label> -->
+          <input matInput [(ngModel)]="quesOption.ques" />
+          <mat-icon *ngIf="searchImageShown" matSuffix>image</mat-icon>
+        </mat-form-field>
+      </div>
+
+      <div
+        class="option_box"
+        cdkDropList
+        (cdkDropListDropped)="onDrop($event)"
+        [cdkDropListData]="newSeasons"
+      >
+        <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+          [(ngModel)]="favoriteSeason"
+        >
+          <div
+            *ngFor="let season of seasons; let i = index"
+            cdkDrag
+            cdkDragLockAxis="y"
+            cdkDragBoundary=".option_box"
+          >
+            <mat-radio-button
+              class="example-radio-button loop"
+              [value]="season"
+            >
+              <!-- {{ season }} -->
+
+              <div class="optionBox">
+                <input
+                  class="custom_input"
+                  placeholder="option {{ i + 1 }}"
+                  type="text"
+                  [(ngModel)]="newSeasons[i]"
+                />
+                <span
+                  (click)="deleteFunc(i, $event)"
+                  class="material-symbols-outlined"
+                >
+                  delete
+                </span>
+                <span cdkDragHandle class="material-symbols-outlined">
+                  apps
+                </span>
+              </div>
+            </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+
+      <!-- <app-add-option></app-add-option> -->
+      <div class="addOther_btn_box">
+        <button (click)="addOption()">
+          <span class="material-symbols-outlined"> add </span> Add Option
+        </button>
+        <button>Add "Other" option</button>
+      </div>
+      <hr />
+      <app-footer-buttons></app-footer-buttons>
+    </div>
+
+    <!-- choice back side -->
+
+    <div *ngIf="!formShow" class="choice_back" (click)="formHandler($event)">
+      <div class="dragbtn">
+        <span class="material-symbols-outlined"> apps </span>
+      </div>
+      <div class="contentBox">
+        <label id="example-radio-group-label"> {{quesOptionList[i].ques || "Question" }}</label>
+        <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+          [(ngModel)]="favoriteSeason"
+        >
+          <mat-radio-button
+            class="example-radio-button"
+            *ngFor="let season of newSeasons"
+            [value]="season"
+          >
+            {{ season }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- output end here -->
+
+
+
+
+
+
+
+
+
+
+
+
 <div *ngIf="visibilityFunc.isVisible">
   <div *ngIf="formShow" class="choice_front">
     <app-heading-inputs></app-heading-inputs>
     <div class="choice_ques_box">
-      <app-qinput></app-qinput>
+      <mat-form-field class="example-full-width">
+        <!-- <mat-label></mat-label> -->
+        <input matInput [(ngModel)]="ques" />
+        <mat-icon *ngIf="searchImageShown" matSuffix>image</mat-icon>
+      </mat-form-field>
     </div>
 
-    <div class="option_box" cdkDropList (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="seasons">
+    <div
+      class="option_box"
+      cdkDropList
+      (cdkDropListDropped)="onDrop($event)"
+      [cdkDropListData]="newSeasons"
+    >
       <mat-radio-group
         aria-labelledby="example-radio-group-label"
         class="example-radio-group"
         [(ngModel)]="favoriteSeason"
       >
-        <div *ngFor="let season of seasons; let i = index" cdkDrag
-        cdkDragLockAxis="y"
-        cdkDragBoundary=".option_box">
-          <mat-radio-button
-            
-            class="example-radio-button loop"
-            [value]="season"
-          >
+        <div
+          *ngFor="let season of seasons; let i = index"
+          cdkDrag
+          cdkDragLockAxis="y"
+          cdkDragBoundary=".option_box"
+        >
+          <mat-radio-button class="example-radio-button loop" [value]="season">
             <!-- {{ season }} -->
 
             <div class="optionBox">
@@ -26,8 +142,12 @@
                 class="custom_input"
                 placeholder="option {{ i + 1 }}"
                 type="text"
+                [(ngModel)]="newSeasons[i]"
               />
-              <span (click)="deleteFunc(i,$event)" class="material-symbols-outlined">
+              <span
+                (click)="deleteFunc(i, $event)"
+                class="material-symbols-outlined"
+              >
                 delete
               </span>
               <span cdkDragHandle class="material-symbols-outlined">
@@ -57,7 +177,7 @@
       <span class="material-symbols-outlined"> apps </span>
     </div>
     <div class="contentBox">
-      <label id="example-radio-group-label">Question</label>
+      <label id="example-radio-group-label">{{ ques || "Question" }}</label>
       <mat-radio-group
         aria-labelledby="example-radio-group-label"
         class="example-radio-group"
@@ -65,7 +185,7 @@
       >
         <mat-radio-button
           class="example-radio-button"
-          *ngFor="let season of seasons"
+          *ngFor="let season of newSeasons"
           [value]="season"
         >
           {{ season }}

@@ -9,6 +9,7 @@ import { FormShowerService } from 'src/app/services/form-shower.service';
 export class RankingComponent {
   label:number = 1;
   icon:string= 'star';
+  ques:any =''
 
   foods:any[] = [
     {value: 1, viewValue: '1'},

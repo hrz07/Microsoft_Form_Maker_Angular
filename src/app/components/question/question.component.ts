@@ -9,6 +9,7 @@ import { FormShowerService } from 'src/app/services/form-shower.service';
 export class QuestionComponent {
 
   formShow:Boolean = false
+  value: any = ''
   formHandler(event: Event): void {
     event.stopPropagation();
     this.formShow = true;

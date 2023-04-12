@@ -23,7 +23,7 @@
 
     <div *ngIf="formShow" class="ques_front" >
         <app-heading-inputs></app-heading-inputs>
-        <app-qinput></app-qinput>
+          <input  matInput [(ngModel)]="value"  />
         <input type="text" disabled placeholder="Enter your answer">
         <hr>
         <app-footer-buttons></app-footer-buttons>
@@ -34,7 +34,7 @@
         <div class="dragbtn">
             <span class="material-symbols-outlined"> apps </span>
           </div>
-        <span>Questions</span>
+        <span>{{value || "Question"}}</span>
         <input type="text" disabled placeholder="Enter your answer">
     </div>
 

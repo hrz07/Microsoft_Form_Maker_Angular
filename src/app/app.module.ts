@@ -32,6 +32,7 @@ import {MatMenuModule} from '@angular/material/menu';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,7 @@ import {MatMenuModule} from '@angular/material/menu';
     NavbarComponent,
     ChoiceComponent,
     QuestionComponent,
-    RankingComponent
+    RankingComponent,
   ],
   imports: [
     BrowserModule,
