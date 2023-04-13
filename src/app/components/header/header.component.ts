@@ -42,6 +42,7 @@ shoow = true
   }
 
 
+ 
 
 @HostListener('document:click', ['$event'])
 onDocumentClick(event: MouseEvent){

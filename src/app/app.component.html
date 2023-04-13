@@ -8,13 +8,19 @@
   <app-navbar></app-navbar>
   <app-toolbar></app-toolbar>
   <div class="formContainer">
-    <app-header></app-header>
-    <app-choice></app-choice>
-    <app-question></app-question>
-    <app-ranking></app-ranking>
-    <app-add-new-btn></app-add-new-btn>
+    <div *ngIf="!viewService.isView" >
+      <app-header></app-header>
+      <app-choice></app-choice>
+      <app-question></app-question>
+      <app-ranking></app-ranking>
+      <app-add-new-btn></app-add-new-btn>
+    </div>
+
+    <div  *ngIf="viewService.isView">
+      <app-all-out-put></app-all-out-put>
+    </div>
+
   </div>
-  <router-outlet></router-outlet>
 </div>
 
 

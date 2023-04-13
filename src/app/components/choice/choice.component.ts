@@ -1,5 +1,5 @@
 import { FormShowerService } from './../../services/form-shower.service';
-import { Component, HostListener, ElementRef } from '@angular/core';
+import { Component, HostListener, ElementRef, OnDestroy } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
@@ -7,21 +7,27 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
   templateUrl: './choice.component.html',
   styleUrls: ['./choice.component.css'],
 })
-export class ChoiceComponent {
+export class ChoiceComponent implements OnDestroy {
   searchImageShown: boolean = true;
   favoriteSeason?: string;
   seasons = ['Winter', 'Spring', 'Summer'];
   newSeasons = [...this.seasons];
   ques: any = '';
 
+  /* start and end with this value */
+
   formShow: Boolean = false;
 
-  quesOptionList: any[] = [];
+  quesOptionList:any[]= [];
   choicePayload: any = {
     type: 'choice',
     ques: '',
     options: [...this.newSeasons],
   };
+
+  ngOnDestroy(): void {
+
+  }
 
   onDrop(event: CdkDragDrop<string[]>) {
     moveItemInArray(
@@ -44,6 +50,17 @@ export class ChoiceComponent {
     event.stopPropagation();
     let newArr = this.seasons.filter((data, index) => index !== i);
     this.seasons = newArr;
+  }
+
+
+  deleteOutPuts(id:any){
+    this.quesOptionList.splice(id,1)
+
+    // localStorage.setItem(
+    //   'allOutputs',
+    //   JSON.stringify(this.quesOptionList)
+    // );
+
   }
 
   constructor(
@@ -72,7 +89,6 @@ export class ChoiceComponent {
             'allOutputs',
             JSON.stringify(this.quesOptionList)
           );
-          console.log(this.quesOptionList);
         }
       }
     }

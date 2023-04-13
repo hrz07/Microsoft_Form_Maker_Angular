@@ -1,0 +1,131 @@
+.choice_front{
+    border-top: 4px solid #0b494b9d;
+    background-color: #f5f5f5;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.choice_ques_box{
+    padding: 0px 20px;
+}
+
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+    align-items: flex-start;
+  }
+
+  .example-radio-button {
+    margin: 5px;
+
+  }
+
+  .option_box{
+    padding: 0px 40px;
+  }
+
+  .custom_input{
+    height: 28px;
+    width: 300px;
+    border: none;
+    border-radius: 3px;
+    padding: 2px 10px;
+    font-size: 16px;
+  }
+
+  .optionBox{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .optionBox span{
+    color: rgb(107, 106, 106);
+  }
+
+  .optionBox:hover span{
+    display: block;
+  }
+
+  .optionBox span{
+    display: none;
+  }
+  .loop{
+    display: flex;
+
+  }
+
+  .dragbtn{
+    display: flex;
+    height: 30px;
+    width: 100%;
+    align-items: center;
+    margin: 0px auto;
+  }
+  .dragbtn span{
+    margin: 0px auto;
+    cursor: pointer;
+  }
+
+  .choice_back{
+    /* width: 100%; */
+    min-height: 300px;
+
+    padding: 10px 60px;
+    margin-bottom: 20px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  }
+
+  .choice_back:hover{
+    background-color: #f5f5f5;
+  }
+
+  .addOther_btn_box{
+    display: flex;
+    gap: 10px;
+    margin-left: 45px;
+}
+.addOther_btn_box button{
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: #f5f5f5;
+    color: #03787c;
+    font-weight: bold;
+    cursor: pointer;
+}
+.plus{
+    display: flex;
+}
+.material-symbols-outlined{
+  cursor: pointer;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+  /* height: 60px; */
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.example-full-width mat-icon{
+  /* margin-bottom: 20px;
+  margin-left: 3px; */
+
+  /* position: absolute; */
+    color: rgb(131, 133, 133);
+}
+
+/* input{
+background-color: aliceblue;
+border-color: aliceblue;
+} */
+

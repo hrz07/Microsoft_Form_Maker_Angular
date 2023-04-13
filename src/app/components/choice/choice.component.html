@@ -1,8 +1,42 @@
 <!---------------------- choice output lists --------------------------------->
 <div *ngIf="quesOptionList.length">
-  <div   *ngFor="let quesOption of quesOptionList; let i = index">
+  <div  *ngFor="let quesOption of quesOptionList; let i = index">
     <div *ngIf="formShow" class="choice_front">
-      <app-heading-inputs></app-heading-inputs>
+
+
+      <!-- <app-heading-inputs></app-heading-inputs> -->
+      <p>
+        <mat-toolbar>
+         <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My App</span> -->
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon" >
+            <span class="material-symbols-outlined">
+                content_copy
+                </span>
+       </button>
+        <button mat-icon-button class="example-icon" (click)="deleteOutPuts(i)" >
+            <span class="material-symbols-outlined">
+                delete
+                </span>
+       </button>
+        <button mat-icon-button class="example-icon" >
+            <span class="material-symbols-outlined">
+                south
+                </span>
+       </button>
+        <button mat-icon-button class="example-icon" >
+            <span class="material-symbols-outlined">
+                north
+                </span>
+       </button>
+      
+      </mat-toolbar>
+      </p>
+
+
       <div class="choice_ques_box">
         <mat-form-field class="example-full-width">
           <!-- <mat-label></mat-label> -->
@@ -10,6 +44,7 @@
           <mat-icon *ngIf="searchImageShown" matSuffix>image</mat-icon>
         </mat-form-field>
       </div>
+
 
       <div
         class="option_box"
@@ -23,7 +58,7 @@
           [(ngModel)]="favoriteSeason"
         >
           <div
-            *ngFor="let option of quesOptionList[i].options; let j = index"
+            *ngFor="let option of quesOption.options; let j = index"
             cdkDrag
             cdkDragLockAxis="y"
             cdkDragBoundary=".option_box"
@@ -39,7 +74,8 @@
                   class="custom_input"
                   placeholder="option {{ j + 1 }}"
                   type="text"
-                  [(ngModel)]="option[j]"
+                  [(ngModel)]="quesOptionList[i].options[i]"
+    
 
                 />
                 <span
@@ -110,9 +146,12 @@
 <div *ngIf="visibilityFunc.isVisible">
   <div *ngIf="formShow" class="choice_front">
     <app-heading-inputs></app-heading-inputs>
+    
+  
+ 
     <div class="choice_ques_box">
       <mat-form-field class="example-full-width">
-        <!-- <mat-label></mat-label> -->
+
         <input matInput [(ngModel)]="ques" />
         <mat-icon *ngIf="searchImageShown" matSuffix>image</mat-icon>
       </mat-form-field>

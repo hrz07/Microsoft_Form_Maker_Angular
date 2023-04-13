@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormShowerService } from './services/form-shower.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'microsoftFormAngular';
+  isView = true;
+
+  viewFunc(){
+    this.isView = !this.isView
+  }
+
+  constructor(public viewService: FormShowerService){
+
+  }
 }

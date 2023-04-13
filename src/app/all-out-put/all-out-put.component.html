@@ -1,1 +1,23 @@
-<p>all-out-put works!</p>
+<div *ngFor="let data of y; let i = index">
+    <div *ngIf="data.type==='choice'"  class="choice_back">
+        <div class="dragbtn">
+          <span class="material-symbols-outlined"> apps </span>
+        </div>
+        <div class="contentBox">
+          <label id="example-radio-group-label">{{i+1}}. {{y[i].ques || "Question" }}</label>
+          <mat-radio-group
+            aria-labelledby="example-radio-group-label"
+            class="example-radio-group"
+            
+          >
+            <mat-radio-button
+              class="example-radio-button"
+              *ngFor="let season of y[i].options"
+              [value]="season"
+            >
+              {{ season }}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+</div>

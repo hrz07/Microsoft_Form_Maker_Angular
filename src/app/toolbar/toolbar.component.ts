@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Observable, Observer} from 'rxjs';
+import { FormShowerService } from '../services/form-shower.service';
 
 export interface ExampleTab {
   label: string;
@@ -14,7 +15,7 @@ export interface ExampleTab {
 export class ToolbarComponent {
   asyncTabs: Observable<ExampleTab[]>;
 
-  constructor() {
+  constructor(public viewService: FormShowerService ) {
     this.asyncTabs = new Observable((observer: Observer<ExampleTab[]>) => {
       setTimeout(() => {
         observer.next([
