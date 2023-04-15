@@ -32,7 +32,7 @@
                 north
                 </span>
        </button>
-      
+
       </mat-toolbar>
       </p>
 
@@ -74,8 +74,8 @@
                   class="custom_input"
                   placeholder="option {{ j + 1 }}"
                   type="text"
-                  [(ngModel)]="quesOptionList[i].options[i]"
-    
+                  [(ngModel)]="quesOptionList[i].options[j]"
+
 
                 />
                 <span
@@ -146,9 +146,9 @@
 <div *ngIf="visibilityFunc.isVisible">
   <div *ngIf="formShow" class="choice_front">
     <app-heading-inputs></app-heading-inputs>
-    
-  
- 
+
+
+
     <div class="choice_ques_box">
       <mat-form-field class="example-full-width">
 

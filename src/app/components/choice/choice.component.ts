@@ -68,12 +68,17 @@ export class ChoiceComponent implements OnDestroy {
     public visibilityFunc: FormShowerService
   ) {}
 
+
+
+
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
     const target = event.target as HTMLElement;
 
     if (!this.ele.nativeElement.contains(target)) {
       this.formShow = false;
+
+
 
 
       if (target.id === 'choice_button') {
@@ -84,6 +89,9 @@ export class ChoiceComponent implements OnDestroy {
             ...this.choicePayload,
             options: [...this.choicePayload.options],
           });
+
+          this.ques = ''
+          this.newSeasons = []
 
           localStorage.setItem(
             'allOutputs',
