@@ -18,16 +18,14 @@ export class ChoiceComponent implements OnDestroy {
 
   formShow: Boolean = false;
 
-  quesOptionList:any[]= [];
+  quesOptionList: any[] = [];
   choicePayload: any = {
     type: 'choice',
     ques: '',
     options: [...this.newSeasons],
   };
 
-  ngOnDestroy(): void {
-
-  }
+  ngOnDestroy(): void {}
 
   onDrop(event: CdkDragDrop<string[]>) {
     moveItemInArray(
@@ -52,24 +50,19 @@ export class ChoiceComponent implements OnDestroy {
     this.seasons = newArr;
   }
 
-
-  deleteOutPuts(id:any){
-    this.quesOptionList.splice(id,1)
+  deleteOutPuts(id: any) {
+    this.quesOptionList.splice(id, 1);
 
     // localStorage.setItem(
     //   'allOutputs',
     //   JSON.stringify(this.quesOptionList)
     // );
-
   }
 
   constructor(
     private ele: ElementRef,
     public visibilityFunc: FormShowerService
   ) {}
-
-
-
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
@@ -78,11 +71,12 @@ export class ChoiceComponent implements OnDestroy {
     if (!this.ele.nativeElement.contains(target)) {
       this.formShow = false;
 
-
-
-
       if (target.id === 'choice_button') {
-        if (this.ques !== '' && this.ques !== this.quesOptionList[this.quesOptionList.length-1]?.ques) {
+        if (
+          this.ques !== '' &&
+          this.ques !==
+            this.quesOptionList[this.quesOptionList.length - 1]?.ques
+        ) {
           this.choicePayload.ques = this.ques;
           this.choicePayload.options = [...this.newSeasons];
           this.quesOptionList.push({
@@ -90,13 +84,21 @@ export class ChoiceComponent implements OnDestroy {
             options: [...this.choicePayload.options],
           });
 
-          this.ques = ''
-          this.newSeasons = []
+          this.ques = '';
+          this.newSeasons = [];
 
-          localStorage.setItem(
-            'allOutputs',
-            JSON.stringify(this.quesOptionList)
-          );
+          let prevData = localStorage.getItem('allOutputs');
+          if (prevData) {
+            let x = JSON.parse(prevData);
+            let newData = [...x, ...this.quesOptionList];
+            let newdt = [...newData]
+            localStorage.setItem('allOutputs', JSON.stringify(newdt));
+          } else {
+            localStorage.setItem(
+              'allOutputs',
+              JSON.stringify(this.quesOptionList)
+            );
+          }
         }
       }
     }

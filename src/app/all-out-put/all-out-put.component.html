@@ -1,3 +1,9 @@
+<div class="heading">
+  <h1>{{ParseHeader.title || 'United'}}</h1>
+  <p>{{ParseHeader.desc || 'Desc'}}</p>
+</div>
+
+
 <div *ngFor="let data of y; let i = index">
     <div *ngIf="data.type==='choice'"  class="choice_back">
         <div class="dragbtn">

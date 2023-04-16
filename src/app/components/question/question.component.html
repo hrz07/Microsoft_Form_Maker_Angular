@@ -1,25 +1,36 @@
-<div *ngIf="visibilityFunc.quesVisible ">
-    <!-- <div *ngIf="formShow" class="ques_front" (click)="formHandler($event)">
-        <app-heading-inputs></app-heading-inputs>
-        <app-qinput></app-qinput>
-        <input type="text" disabled placeholder="Enter your answer">
-        <hr>
-        <app-footer-buttons></app-footer-buttons>
+
+
+
+<div *ngIf="quesList">
+    <div *ngFor="let quesObj of quesList; let i = index">
+       <div *ngIf="quesObj.ques">
+        <div *ngIf="formShow" class="ques_front" >
+            <app-heading-inputs></app-heading-inputs>
+              <input  matInput [(ngModel)]="quesObj.ques"  />
+            <input type="text" disabled placeholder="Enter your answer">
+            <hr>
+            <app-footer-buttons></app-footer-buttons>
+        </div>
+        
+        
+        <div *ngIf="!formShow"  class="ques_back" (click)="formHandler($event)" >
+            <div class="dragbtn">
+                <span class="material-symbols-outlined"> apps </span>
+              </div>
+            <span>{{quesObj?.ques || "Question"}}</span>
+            <input type="text" disabled placeholder="Enter your answer">
+        </div>
+       </div>
     </div>
-    
-    
-    <div *ngIf="!formShow" class="ques_back">
-        <div class="dragbtn">
-            <span class="material-symbols-outlined"> apps </span>
-          </div>
-        <span>Questions</span>
-        <input type="text" disabled placeholder="Enter your answer">
-    </div> -->
+</div>
 
 
 
 
-<!-- test -->
+
+
+
+<div *ngIf="visibilityFunc.quesVisible ">
 
     <div *ngIf="formShow" class="ques_front" >
         <app-heading-inputs></app-heading-inputs>

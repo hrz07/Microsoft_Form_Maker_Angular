@@ -17,13 +17,13 @@ export class FormShowerService {
     this.isVisible = !this.isVisible;
   }
 
-  quesVisibility(event:Event):void{
-    event.stopPropagation()
+  quesVisibility():void{
+    // event.stopPropagation()
     this.quesVisible = !this.quesVisible;
   }
 
-  rankingVisibility(event:Event):void{
-    event.stopPropagation()
+  rankingVisibility():void{
+    // event.stopPropagation()
     this.rankingVisible = !this.rankingVisible;
   }
 

@@ -51,6 +51,8 @@ onDocumentClick(event: MouseEvent){
   {
     // this.formShow = !this.formShow;
     this.formShow = true;
+
+    
     localStorage.setItem("my-data", JSON.stringify(this.dataPayload));
     let x = localStorage.getItem("my-data");
  
