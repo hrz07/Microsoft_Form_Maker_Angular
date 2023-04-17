@@ -1,5 +1,6 @@
 import { Component, HostListener, ElementRef } from '@angular/core';
 import { FormShowerService } from 'src/app/services/form-shower.service';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-ranking',
@@ -33,6 +34,18 @@ export class RankingComponent {
     icon: '',
     label: 0,
   };
+
+  deleteOutPuts(id: any) {
+    this.ratingList.splice(id, 1);
+  }
+
+  onDrop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(
+      event.container.data,
+      event.previousIndex,
+      event.currentIndex
+    );
+  }
 
   constructor(
     private ele: ElementRef,

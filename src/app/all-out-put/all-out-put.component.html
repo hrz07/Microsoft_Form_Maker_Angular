@@ -1,29 +1,63 @@
 <div class="heading">
-  <h1>{{ParseHeader.title || 'United'}}</h1>
-  <p>{{ParseHeader.desc || 'Desc'}}</p>
+  <h1>{{ ParseHeader.title || "United" }}</h1>
+  <p>{{ ParseHeader.desc || "Desc" }}</p>
 </div>
 
+<div class="allOutputContainer" cdkDropList (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="y">
 
-<div *ngFor="let data of y; let i = index">
-    <div *ngIf="data.type==='choice'"  class="choice_back">
-        <div class="dragbtn">
-          <span class="material-symbols-outlined"> apps </span>
-        </div>
-        <div class="contentBox">
-          <label id="example-radio-group-label">{{i+1}}. {{y[i].ques || "Question" }}</label>
-          <mat-radio-group
-            aria-labelledby="example-radio-group-label"
-            class="example-radio-group"
-            
-          >
-            <mat-radio-button
-              class="example-radio-button"
-              *ngFor="let season of y[i].options"
-              [value]="season"
-            >
-              {{ season }}
-            </mat-radio-button>
-          </mat-radio-group>
-        </div>
+  <div *ngFor="let data of y; let i = index"  cdkDrag cdkDragLockAxis="y" cdkDragBoundary=".allOutputContainer ">
+    <!-- for choice -->
+    <div *ngIf="data.type === 'choice'" class="choice_back">
+      <div class="dragbtn">
+        <span class="material-symbols-outlined"> apps </span>
       </div>
+      <div class="contentBox">
+        <label id="example-radio-group-label"
+          >{{ i + 1 }}. {{ y[i].ques || "Question" }}</label
+        >
+        <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+        >
+          <mat-radio-button
+            class="example-radio-button"
+            *ngFor="let season of y[i].options"
+            [value]="season"
+          >
+            {{ season }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+
+    <!-- for text -->
+    <div *ngIf="data.type === 'text_btn'" class="ques_back">
+      <div class="dragbtn">
+        <span class="material-symbols-outlined"> apps </span>
+      </div>
+      <span>{{ i + 1 }}.{{ data?.ques || "Question" }}</span>
+      <input type="text"  placeholder="Enter your answer" />
+    </div>
+
+    <!-- for rating -->
+
+    <div *ngIf="data.type === 'rating_btn'" class="ranking_back">
+      <div class="dragbtn">
+        <span class="material-symbols-outlined"> apps </span>
+      </div>
+      <span class="ques">{{ i + 1 }}.{{ data.ques || "Question" }}</span>
+      <div>
+        <!-- <span class="material-symbols-outlined"> thumb_up </span>
+        <span class="material-symbols-outlined"> thumb_up </span>
+        <span class="material-symbols-outlined"> thumb_up </span>
+        <span class="material-symbols-outlined"> thumb_up </span>
+        <span class="material-symbols-outlined"> thumb_up </span> -->
+        <span *ngFor="let i of [].constructor(data.label)"
+          ><span class="material-symbols-outlined">
+            {{ data.icon }}
+          </span></span
+        >
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,9 +1,42 @@
-<div *ngIf="ratingList.length">
-  <div *ngFor="let rating of ratingList; let i = index">
+<div class="rankingBox" *ngIf="ratingList.length" cdkDropList (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="ratingList" >
+  <div *ngFor="let rating of ratingList; let i = index"  cdkDrag cdkDragLockAxis="y" cdkDragBoundary=".rankingBox ">
       <div *ngIf="rating.ques">
         <div *ngIf="formShow" class="rank_front">
-          <app-heading-inputs></app-heading-inputs>
-      
+
+
+          <!-- <app-heading-inputs></app-heading-inputs> -->
+          
+  
+            <p>
+              <mat-toolbar>
+              <span class="example-spacer"></span>
+              <button mat-icon-button class="example-icon" >
+                  <span class="material-symbols-outlined">
+                      content_copy
+                      </span>
+            </button>
+              <button (click)="deleteOutPuts(i)" mat-icon-button class="example-icon" >
+                  <span class="material-symbols-outlined">
+                      delete
+                      </span>
+            </button>
+              <button mat-icon-button class="example-icon" >
+                  <span class="material-symbols-outlined">
+                      south
+                      </span>
+            </button>
+              <button mat-icon-button class="example-icon" >
+                  <span class="material-symbols-outlined">
+                      north
+                      </span>
+            </button>
+            
+            </mat-toolbar>
+            </p>
+  
+
+
+
           <mat-form-field class="example-full-width">
             <input matInput [(ngModel)]="rating.ques" />
           </mat-form-field>
@@ -45,7 +78,7 @@
       
         <div *ngIf="!formShow" class="ranking_back" (click)="formHandler($event)">
           <div class="dragbtn">
-            <span class="material-symbols-outlined"> apps </span>
+            <span cdkDragHandle class="material-symbols-outlined"> apps </span>
           </div>
           <span class="ques">{{ rating.ques || "Question" }}</span>
           <div>

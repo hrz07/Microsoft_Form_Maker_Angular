@@ -1,39 +1,35 @@
 <!---------------------- choice output lists --------------------------------->
-<div *ngIf="quesOptionList.length">
-  <div  *ngFor="let quesOption of quesOptionList; let i = index">
+<div class="choice_output_show" *ngIf="quesOptionList.length" cdkDropList (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="quesOptionList">
+  <div *ngFor="let quesOption of quesOptionList; let i = index" cdkDrag cdkDragLockAxis="y" cdkDragBoundary=".choice_output_show">
     <div *ngIf="formShow" class="choice_front">
 
 
-      <!-- <app-heading-inputs></app-heading-inputs> -->
       <p>
         <mat-toolbar>
-         <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span>My App</span> -->
-        <span class="example-spacer"></span>
-        <button mat-icon-button class="example-icon" >
-            <span class="material-symbols-outlined">
-                content_copy
-                </span>
-       </button>
-        <button mat-icon-button class="example-icon" (click)="deleteOutPuts(i)" >
-            <span class="material-symbols-outlined">
-                delete
-                </span>
-       </button>
-        <button mat-icon-button class="example-icon" >
-            <span class="material-symbols-outlined">
-                south
-                </span>
-       </button>
-        <button mat-icon-button class="example-icon" >
-            <span class="material-symbols-outlined">
-                north
-                </span>
-       </button>
 
-      </mat-toolbar>
+          <span class="example-spacer"></span>
+          <button mat-icon-button class="example-icon">
+            <span class="material-symbols-outlined">
+              content_copy
+            </span>
+          </button>
+          <button mat-icon-button class="example-icon" (click)="deleteOutPuts(i)">
+            <span class="material-symbols-outlined">
+              delete
+            </span>
+          </button>
+          <button mat-icon-button class="example-icon">
+            <span class="material-symbols-outlined">
+              south
+            </span>
+          </button>
+          <button mat-icon-button class="example-icon">
+            <span class="material-symbols-outlined">
+              north
+            </span>
+          </button>
+
+        </mat-toolbar>
       </p>
 
 
@@ -46,42 +42,18 @@
       </div>
 
 
-      <div
-        class="option_box"
-        cdkDropList
-        (cdkDropListDropped)="onDrop($event)"
-        [cdkDropListData]="newSeasons"
-      >
-        <mat-radio-group
-          aria-labelledby="example-radio-group-label"
-          class="example-radio-group"
-          [(ngModel)]="favoriteSeason"
-        >
-          <div
-            *ngFor="let option of quesOption.options; let j = index"
-            cdkDrag
-            cdkDragLockAxis="y"
-            cdkDragBoundary=".option_box"
-          >
-            <mat-radio-button
-              class="example-radio-button loop"
-              [value]="option"
-            >
+      <div class="option_box" cdkDropList (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="newSeasons">
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+          [(ngModel)]="favoriteSeason">
+          <div *ngFor="let option of quesOption.options; let j = index" cdkDrag cdkDragLockAxis="y"
+            cdkDragBoundary=".option_box">
+            <mat-radio-button class="example-radio-button loop" [value]="option">
               <!-- {{ season }} -->
 
               <div class="optionBox">
-                <input
-                  class="custom_input"
-                  placeholder="option {{ j + 1 }}"
-                  type="text"
-                  [(ngModel)]="quesOptionList[i].options[j]"
-
-
-                />
-                <span
-                  (click)="deleteFunc(j, $event)"
-                  class="material-symbols-outlined"
-                >
+                <input class="custom_input" placeholder="option {{ j + 1 }}" type="text"
+                  [(ngModel)]="quesOptionList[i].options[j]" />
+                <span (click)="deleteFunc(j, $event)" class="material-symbols-outlined">
                   delete
                 </span>
                 <span cdkDragHandle class="material-symbols-outlined">
@@ -108,20 +80,14 @@
 
     <div *ngIf="!formShow" class="choice_back" (click)="formHandler($event)">
       <div class="dragbtn">
-        <span class="material-symbols-outlined"> apps </span>
+        <span cdkDragHandle class="material-symbols-outlined"> apps </span>
       </div>
       <div class="contentBox">
         <label id="example-radio-group-label"> {{quesOptionList[i].ques || "Question" }}</label>
-        <mat-radio-group
-          aria-labelledby="example-radio-group-label"
-          class="example-radio-group"
-          [(ngModel)]="favoriteSeason"
-        >
-          <mat-radio-button
-            class="example-radio-button"
-            *ngFor="let season of quesOptionList[i].options"
-            [value]="season"
-          >
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+          [(ngModel)]="favoriteSeason">
+          <mat-radio-button class="example-radio-button" *ngFor="let season of quesOptionList[i].options"
+            [value]="season">
             {{ season }}
           </mat-radio-button>
         </mat-radio-group>
@@ -131,10 +97,6 @@
 </div>
 
 <!-- output end here -->
-
-
-
-
 
 
 
@@ -157,37 +119,16 @@
       </mat-form-field>
     </div>
 
-    <div
-      class="option_box"
-      cdkDropList
-      (cdkDropListDropped)="onDrop($event)"
-      [cdkDropListData]="newSeasons"
-    >
-      <mat-radio-group
-        aria-labelledby="example-radio-group-label"
-        class="example-radio-group"
-        [(ngModel)]="favoriteSeason"
-      >
-        <div
-          *ngFor="let season of seasons; let i = index"
-          cdkDrag
-          cdkDragLockAxis="y"
-          cdkDragBoundary=".option_box"
-        >
+    <div class="option_box" cdkDropList (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="newSeasons">
+      <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+        [(ngModel)]="favoriteSeason">
+        <div *ngFor="let season of seasons; let i = index" cdkDrag cdkDragLockAxis="y" cdkDragBoundary=".option_box">
           <mat-radio-button class="example-radio-button loop" [value]="season">
             <!-- {{ season }} -->
 
             <div class="optionBox">
-              <input
-                class="custom_input"
-                placeholder="option {{ i + 1 }}"
-                type="text"
-                [(ngModel)]="newSeasons[i]"
-              />
-              <span
-                (click)="deleteFunc(i, $event)"
-                class="material-symbols-outlined"
-              >
+              <input class="custom_input" placeholder="option {{ i + 1 }}" type="text" [(ngModel)]="newSeasons[i]" />
+              <span (click)="deleteFunc(i, $event)" class="material-symbols-outlined">
                 delete
               </span>
               <span cdkDragHandle class="material-symbols-outlined">
@@ -218,16 +159,9 @@
     </div>
     <div class="contentBox">
       <label id="example-radio-group-label">{{ ques || "Question" }}</label>
-      <mat-radio-group
-        aria-labelledby="example-radio-group-label"
-        class="example-radio-group"
-        [(ngModel)]="favoriteSeason"
-      >
-        <mat-radio-button
-          class="example-radio-button"
-          *ngFor="let season of newSeasons"
-          [value]="season"
-        >
+      <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+        [(ngModel)]="favoriteSeason">
+        <mat-radio-button class="example-radio-button" *ngFor="let season of newSeasons" [value]="season">
           {{ season }}
         </mat-radio-button>
       </mat-radio-group>

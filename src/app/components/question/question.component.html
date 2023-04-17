@@ -1,11 +1,44 @@
 
 
 
-<div *ngIf="quesList">
-    <div *ngFor="let quesObj of quesList; let i = index">
+<div *ngIf="quesList" cdkDropList (cdkDropListDropped)="onDrop($event)" [cdkDropListData]="quesList">
+    <div *ngFor="let quesObj of quesList; let i = index" cdkDrag cdkDragLockAxis="y" cdkDragBoundary=".allOutputContainer ">
        <div *ngIf="quesObj.ques">
         <div *ngIf="formShow" class="ques_front" >
-            <app-heading-inputs></app-heading-inputs>
+
+
+            <!-- <app-heading-inputs></app-heading-inputs> -->
+            
+  
+          <p>
+            <mat-toolbar>
+            <span class="example-spacer"></span>
+            <button mat-icon-button class="example-icon" >
+                <span class="material-symbols-outlined">
+                    content_copy
+                    </span>
+          </button>
+            <button (click)="deleteOutPuts(i)" mat-icon-button class="example-icon" >
+                <span class="material-symbols-outlined">
+                    delete
+                    </span>
+          </button>
+            <button mat-icon-button class="example-icon" >
+                <span class="material-symbols-outlined">
+                    south
+                    </span>
+          </button>
+            <button mat-icon-button class="example-icon" >
+                <span class="material-symbols-outlined">
+                    north
+                    </span>
+          </button>
+          
+          </mat-toolbar>
+          </p>
+  
+
+
               <input  matInput [(ngModel)]="quesObj.ques"  />
             <input type="text" disabled placeholder="Enter your answer">
             <hr>
@@ -15,7 +48,7 @@
         
         <div *ngIf="!formShow"  class="ques_back" (click)="formHandler($event)" >
             <div class="dragbtn">
-                <span class="material-symbols-outlined"> apps </span>
+                <span cdkDragHandle class="material-symbols-outlined"> apps </span>
               </div>
             <span>{{quesObj?.ques || "Question"}}</span>
             <input type="text" disabled placeholder="Enter your answer">

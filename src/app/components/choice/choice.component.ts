@@ -52,11 +52,6 @@ export class ChoiceComponent implements OnDestroy {
 
   deleteOutPuts(id: any) {
     this.quesOptionList.splice(id, 1);
-
-    // localStorage.setItem(
-    //   'allOutputs',
-    //   JSON.stringify(this.quesOptionList)
-    // );
   }
 
   constructor(

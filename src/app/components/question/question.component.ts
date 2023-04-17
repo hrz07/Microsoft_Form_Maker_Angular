@@ -1,5 +1,6 @@
 import { Component,HostListener,ElementRef } from '@angular/core';
 import { FormShowerService } from 'src/app/services/form-shower.service';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-question',
@@ -19,13 +20,23 @@ export class QuestionComponent {
   };
 
 
-
-
-
   formHandler(event: Event): void {
     event.stopPropagation();
     this.formShow = true;
   }
+
+  deleteOutPuts(id: any) {
+    this.quesList.splice(id, 1);
+  }
+
+  onDrop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(
+      event.container.data,
+      event.previousIndex,
+      event.currentIndex
+    );
+  }
+
   constructor(private ele:ElementRef,public visibilityFunc: FormShowerService){
   }
 
